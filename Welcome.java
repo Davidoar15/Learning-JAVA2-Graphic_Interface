@@ -15,10 +15,10 @@ public class Welcome extends JFrame implements ActionListener {
         setIconImage(new ImageIcon(getClass().getResource("images/coca-cola-bottle.png")).getImage());
 
         ImageIcon image = new ImageIcon("images/coca-cola-blanca.png");
-        Image resizeImg = image.getImage();
-        Image newResizeImg = resizeImg.getScaledInstance(280, 150, Image.SCALE_SMOOTH); // Adaptar Image
-        ImageIcon trueImg = new ImageIcon(newResizeImg);
-        label1 = new JLabel(trueImg);
+        Image getImg = image.getImage();
+        Image resizeImg = getImg.getScaledInstance(280, 150, Image.SCALE_SMOOTH); // Adapt Image
+        ImageIcon newImg = new ImageIcon(resizeImg);
+        label1 = new JLabel(newImg);
         label1.setBounds(35, 15, 280, 150);
         add(label1);
 
