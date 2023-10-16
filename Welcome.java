@@ -14,12 +14,12 @@ public class Welcome extends JFrame implements ActionListener {
         getContentPane().setBackground(new Color(255, 0, 0));
         setIconImage(new ImageIcon(getClass().getResource("images/coca-cola-bottle.png")).getImage());
 
-        ImageIcon image = new ImageIcon("images/coca-cola-blanca.png");
+        ImageIcon image = new ImageIcon("images/cocacola-letters.png");
         Image getImg = image.getImage();
-        Image resizeImg = getImg.getScaledInstance(280, 150, Image.SCALE_SMOOTH); // Adapt Image
+        Image resizeImg = getImg.getScaledInstance(300, 100, Image.SCALE_SMOOTH); // Adapt Image
         ImageIcon newImg = new ImageIcon(resizeImg);
         label1 = new JLabel(newImg);
-        label1.setBounds(35, 15, 280, 150);
+        label1.setBounds(30, 35, 300, 100);
         add(label1);
 
         label2 = new JLabel("Vacation Control System");
