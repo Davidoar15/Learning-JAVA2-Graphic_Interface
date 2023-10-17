@@ -13,11 +13,15 @@ public class Principal extends JFrame implements ActionListener {
     private JScrollPane scrollPane; 
     private JTextArea textArea;
 
+    String name = "", workerName = "", lastName = "", motherLastName = "", department = "", antiquity = "";
+
     public Principal() {
         setLayout(null);
         setTitle("Principal Screen");
         getContentPane().setBackground(new Color(255, 0, 0));
         setIconImage(new ImageIcon(getClass().getResource("images/coca-cola-bottle.png")).getImage());
+
+        name = Welcome.name;
 
         menuBar = new JMenuBar();
         menuBar.setBackground(new Color(255, 0, 0));
@@ -96,9 +100,9 @@ public class Principal extends JFrame implements ActionListener {
         labelLogo.setBounds(20, 10, 270, 100);
         add(labelLogo);
 
-        labelWelcome = new JLabel("WELCOME");
-        labelWelcome.setBounds(360, 42, 300, 50);
-        labelWelcome.setFont(new Font("Andale Mono", 1, 32));
+        labelWelcome = new JLabel("Welcome, "+name);
+        labelWelcome.setBounds(295, 42, 300, 50);
+        labelWelcome.setFont(new Font("Andale Mono", 1, 28));
         labelWelcome.setForeground(new Color(255, 255, 255));
         add(labelWelcome);
 
@@ -108,7 +112,7 @@ public class Principal extends JFrame implements ActionListener {
         labelTitle.setForeground(new Color(255, 255, 255));
         add(labelTitle);
 
-        labelName = new JLabel("Full Name:");
+        labelName = new JLabel("Name:");
         labelName.setBounds(25, 188, 180, 25);
         labelName.setFont(new Font("Andale Mono", 1, 12));
         labelName.setForeground(new Color(255, 255, 255));
@@ -158,7 +162,7 @@ public class Principal extends JFrame implements ActionListener {
         comboDepartment.setBackground(new Color(224, 224, 224));
         comboDepartment.setFont(new Font("Andale Mono", 1, 14));
         comboDepartment.setForeground(new Color(255, 0, 0));
-        comboDepartment.addItem("Please Select a Option");
+        comboDepartment.addItem("please select a option");
         comboDepartment.addItem("Customer Support");
         comboDepartment.addItem("Logistics Department");
         comboDepartment.addItem("Management Department");
@@ -175,7 +179,7 @@ public class Principal extends JFrame implements ActionListener {
         comboAntiquity.setBackground(new Color(224, 224, 224));
         comboAntiquity.setFont(new Font("Andale Mono", 1, 14));
         comboAntiquity.setForeground(new Color(255, 0, 0));
-        comboAntiquity.addItem("Please Select a Option");
+        comboAntiquity.addItem("please select a option");
         comboAntiquity.addItem("1 year of service");
         comboAntiquity.addItem("2 to 6 years of service");
         comboAntiquity.addItem("7 or more years of service");
@@ -198,7 +202,7 @@ public class Principal extends JFrame implements ActionListener {
         add(scrollPane);
 
         labelFooter = new JLabel("© 2023 The Coca-Cola Company | All rights reserved");
-        labelFooter.setBounds(155, 445, 500, 30);
+        labelFooter.setBounds(160, 435, 500, 30);
         labelFooter.setFont(new Font("Andale Mono", 1, 12));
         labelFooter.setForeground(new Color(255, 255, 255));
         add(labelFooter);
@@ -206,25 +210,116 @@ public class Principal extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == itemCalc) {
+            workerName = textName.getText();
+            lastName = textLastName.getText();
+            motherLastName = textMotherLastName.getText();
+            department = comboDepartment.getSelectedItem().toString();            
+            antiquity = comboAntiquity.getSelectedItem().toString();
 
+            if (
+                workerName.equals("") || 
+                lastName.equals("") || 
+                motherLastName.equals("") ||
+                department.equals("Please Select a Option") ||
+                antiquity.equals("Please Select a Option")
+            ) {
+                JOptionPane.showMessageDialog(null, "Must fill out All the Fields");
+            } else {
+                if (department.equals("Customer Support")) {
+                    if (antiquity.equals("1 year of service")) {
+                        textArea.setText("\n    The Worker "+workerName+" "+lastName+" "+motherLastName+","+
+                                         "\n    who works at "+department+" with "+antiquity+","+
+                                         "\n    receives 6 days of vacation.");
+                    }
+
+                    if (antiquity.equals("2 to 6 years of service")) {
+                        textArea.setText("\n    The Worker "+workerName+" "+lastName+" "+motherLastName+","+
+                                         "\n    who works at "+department+" with "+antiquity+","+
+                                         "\n    receives 14 days of vacation.");    
+                    }
+
+                    if (antiquity.equals("7 or more years of service")) {
+                        textArea.setText("\n    The Worker "+workerName+" "+lastName+" "+motherLastName+","+
+                                         "\n    who works at "+department+" with "+antiquity+","+
+                                         "\n    receives 20 days of vacation.");    
+                    }
+                }
+
+                if (department.equals("Logistics Department")) {
+                    if (antiquity.equals("1 year of service")) {
+                        textArea.setText("\n    The Worker "+workerName+" "+lastName+" "+motherLastName+","+
+                                         "\n    who works at "+department+" with "+antiquity+
+                                         "\n    receives 7 days of vacation.");
+                    }
+
+                    if (antiquity.equals("2 to 6 years of service")) {
+                        textArea.setText("\n    The Worker "+workerName+" "+lastName+" "+motherLastName+","+
+                                         "\n    who works at "+department+" with "+antiquity+","+
+                                         "\n    receives 15 days of vacation.");    
+                    }
+
+                    if (antiquity.equals("7 or more years of service")) {
+                        textArea.setText("\n    The Worker "+workerName+" "+lastName+" "+motherLastName+","+
+                                         "\n    who works at "+department+" with "+antiquity+","+
+                                         "\n    receives 22 days of vacation.");    
+                    }
+                }
+
+                if (department.equals("Management Department")) {
+                    if (antiquity.equals("1 year of service")) {
+                        textArea.setText("\n    The Worker "+workerName+" "+lastName+" "+motherLastName+","+
+                                         "\n    who works at "+department+" with "+antiquity+","+
+                                         "\n    receives 10 days of vacation.");
+                    }
+
+                    if (antiquity.equals("2 to 6 years of service")) {
+                        textArea.setText("\n    The Worker "+workerName+" "+lastName+" "+motherLastName+","+
+                                         "\n    who works at "+department+" with "+antiquity+","+
+                                         "\n    receives 20 days of vacation.");    
+                    }
+
+                    if (antiquity.equals("7 or more years of service")) {
+                        textArea.setText("\n    The Worker "+workerName+" "+lastName+" "+motherLastName+","+
+                                         "\n    who works at "+department+" with "+antiquity+","+
+                                         "\n    receives 30 days of vacation.");    
+                    }
+                }
+            }
         }
-        if (e.getSource() == itemRed) {
 
+        if (e.getSource() == itemRed) {
+            getContentPane().setBackground(new Color(255, 0, 0));
         }
         if (e.getSource() == itemBlack) {
-
+            getContentPane().setBackground(new Color(0, 0, 0));
         }
         if (e.getSource() == itemPurple) {
-
+            getContentPane().setBackground(new Color(51, 0, 51));
         }
+
         if (e.getSource() == itemNew) {
-
+            textName.setText("");
+            textLastName.setText("");
+            textMotherLastName.setText("");
+            comboDepartment.setSelectedIndex(0);            
+            comboAntiquity.setSelectedIndex(0);
+            textArea.setText("\n    Here appears the Result of the Vacation Calculation.");
         }
+
         if (e.getSource() == itemOut) {
+            Welcome windowWelcome = new Welcome();
 
+            windowWelcome.setBounds(0, 0, 365, 450);
+            windowWelcome.setVisible(true);
+            windowWelcome.setResizable(false);
+            windowWelcome.setLocationRelativeTo(null);        
+            this.setVisible(false);
         }
-        if (e.getSource() == itemCreator) {
 
+        if (e.getSource() == itemCreator) {
+            JOptionPane.showMessageDialog(null, "Develop for David Alfonso Olivo Rodríguez\n"+
+                                                "- linkedin.com/in/david-olivo-rodríguez-401412239\n"+
+                                                "- github.com/Davidoar15");
         }
     }
 
