@@ -8,6 +8,9 @@ public class Welcome extends JFrame implements ActionListener {
     private JLabel label1, label2, label3, label4;
     private JButton button;
 
+    // * Public variable that any interface can use
+    public static String name = "";
+
     public Welcome() {
         setLayout(null);
         setTitle("WELCOME");
@@ -58,7 +61,20 @@ public class Welcome extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == button) {
+            // trim() => delete spaces in textField
+            name = textField.getText().trim();
 
+            if (name.equals("")) {
+                JOptionPane.showMessageDialog(null, "Must write your Name");
+            } else {
+                TermsConditions windowLicense = new TermsConditions();
+        
+                windowLicense.setBounds(0, 0, 618, 380);
+                windowLicense.setVisible(true);
+                windowLicense.setResizable(false);
+                windowLicense.setLocationRelativeTo(null);
+                this.setVisible(false);
+            }
         }
     }
 
