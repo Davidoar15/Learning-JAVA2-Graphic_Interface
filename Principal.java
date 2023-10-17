@@ -17,6 +17,7 @@ public class Principal extends JFrame implements ActionListener {
 
     public Principal() {
         setLayout(null);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("Principal Screen");
         getContentPane().setBackground(new Color(255, 0, 0));
         setIconImage(new ImageIcon(getClass().getResource("images/coca-cola-bottle.png")).getImage());
@@ -317,7 +318,7 @@ public class Principal extends JFrame implements ActionListener {
         }
 
         if (e.getSource() == itemCreator) {
-            JOptionPane.showMessageDialog(null, "Develop for David Alfonso Olivo Rodríguez\n"+
+            JOptionPane.showMessageDialog(null, "Developed by David Alfonso Olivo Rodríguez\n"+
                                                 "- linkedin.com/in/david-olivo-rodríguez-401412239\n"+
                                                 "- github.com/Davidoar15");
         }

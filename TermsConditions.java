@@ -15,6 +15,7 @@ public class TermsConditions extends JFrame implements ActionListener, ChangeLis
 
     public TermsConditions() {
         setLayout(null);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("License");
         setIconImage(new ImageIcon(getClass().getResource("images/coca-cola-bottle.png")).getImage());
 

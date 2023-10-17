@@ -13,6 +13,7 @@ public class Welcome extends JFrame implements ActionListener {
 
     public Welcome() {
         setLayout(null);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("WELCOME");
         getContentPane().setBackground(new Color(255, 0, 0));
         setIconImage(new ImageIcon(getClass().getResource("images/coca-cola-bottle.png")).getImage());
