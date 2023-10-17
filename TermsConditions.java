@@ -11,10 +11,14 @@ public class TermsConditions extends JFrame implements ActionListener, ChangeLis
     private JScrollPane scrollPane;
     private JTextArea textArea;
 
+    String name = "";
+
     public TermsConditions() {
         setLayout(null);
         setTitle("License");
         setIconImage(new ImageIcon(getClass().getResource("images/coca-cola-bottle.png")).getImage());
+
+        name = Welcome.name;
 
         label1 = new JLabel("TERMS & CONDITIONS");
         label1.setBounds(225, 5, 200, 30);
@@ -39,7 +43,7 @@ public class TermsConditions extends JFrame implements ActionListener, ChangeLis
         scrollPane.setBounds(15, 40, 575, 200);
         add(scrollPane);
 
-        check = new JCheckBox("I Accept");
+        check = new JCheckBox("I, "+name+", Accept");
         check.setBounds(10, 250, 300, 30);
         check.addChangeListener(this);
         add(check);
@@ -66,11 +70,33 @@ public class TermsConditions extends JFrame implements ActionListener, ChangeLis
     }
 
     public void stateChanged(ChangeEvent e) {
-        
+        if (check.isSelected()) {
+            btn1.setEnabled(true);
+            btn2.setEnabled(false);
+        } else {
+            btn1.setEnabled(false);
+            btn2.setEnabled(true);
+        }
     }
 
     public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == btn1) {
+            Principal windowPrincipal = new Principal();
 
+            windowPrincipal.setBounds(0, 0, 640, 535);
+            windowPrincipal.setVisible(true);
+            windowPrincipal.setResizable(false);
+            windowPrincipal.setLocationRelativeTo(null);
+            this.setVisible(false);
+        } else if (e.getSource() == btn2) {
+            Welcome windowWelcome = new Welcome();
+
+            windowWelcome.setBounds(0, 0, 365, 450);
+            windowWelcome.setVisible(true);
+            windowWelcome.setResizable(false);
+            windowWelcome.setLocationRelativeTo(null);
+            this.setVisible(false);
+        }
     }
 
     public static void main(String args[]) {
