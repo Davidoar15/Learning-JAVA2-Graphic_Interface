@@ -44,6 +44,10 @@ The program should contain three different interfaces for navigation between the
     - With 1 year of service, they receive 10 vacation days.
     - With 2 to 6 years of service, they receive 20 vacation days.
     - From 7 years of service onwards, they receive 30 vacation days.
+ 
+## Technologies used
+- JAVA
+- OpenJDK - 21
 
 <h1 align="center"> Thanks for See </h1> 
 
