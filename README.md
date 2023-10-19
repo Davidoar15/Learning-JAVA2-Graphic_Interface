@@ -51,12 +51,12 @@ The program should contain three different interfaces for navigation between the
     <img 
         src="https://1000logos.net/wp-content/uploads/2020/09/Java-Logo.png" 
         alt="Imagen 1" 
-        width="400" 
-        hspace="20"
+        width="100" 
+        hspace="50"
     />
     <img 
         src="images/logo-coca-cola.png" 
         alt="Imagen 2" 
-        width="400"
+        width="100"
     />
 </p>
