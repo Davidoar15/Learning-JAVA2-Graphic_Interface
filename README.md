@@ -47,15 +47,16 @@ The program should contain three different interfaces for navigation between the
 
 <h1 align="center"> Thanks for See </h1> 
 
-<p style="display: flex; justify-content: center;">
+<p align="center">
     <img 
         src="https://1000logos.net/wp-content/uploads/2020/09/Java-Logo.png" 
-        style="margin-right: 70px;"
-        width="150"
+        alt="Imagen 1" 
+        width="400" 
+        hspace="20"
     />
     <img 
         src="images/logo-coca-cola.png" 
-        width="120"
-        height="120"
+        alt="Imagen 2" 
+        width="400"
     />
 </p>
